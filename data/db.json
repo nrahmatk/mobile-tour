@@ -1,0 +1,86 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "user",
+      "email": "user@mail.com",
+      "password": "12345"
+    }
+  ],
+  "destinations": [
+    {
+      "imageSrc": "/Niladri.jpeg",
+      "title": "Niladri Reservoir",
+      "location": "Tekergat, Sunamgnj",
+      "rating": 4.7,
+      "avatarCount": 50
+    },
+    {
+      "imageSrc": "/darma.jpeg",
+      "title": "Darma Reservoir",
+      "location": "Darma, Kuningan",
+      "rating": 4.5,
+      "avatarCount": 30
+    },
+    {
+      "imageSrc": "/Niladri.jpeg",
+      "title": "Niladri Reservoir",
+      "location": "Tekergat, Sunamgnj",
+      "rating": 4.7,
+      "avatarCount": 50
+    },
+    {
+      "imageSrc": "/darma.jpeg",
+      "title": "Darma Reservoir",
+      "location": "Darma, Kuningan",
+      "rating": 4.5,
+      "avatarCount": 30
+    },
+    {
+      "imageSrc": "/Niladri.jpeg",
+      "title": "Niladri Reservoir",
+      "location": "Tekergat, Sunamgnj",
+      "rating": 4.7,
+      "avatarCount": 50
+    },
+    {
+      "imageSrc": "/darma.jpeg",
+      "title": "Darma Reservoir",
+      "location": "Darma, Kuningan",
+      "rating": 4.5,
+      "avatarCount": 30
+    }
+  ],
+  "favoritePlaces": [
+    {
+      "imageSrc": "/niladri.jpeg",
+      "title": "Niladri Reservoir",
+      "location": "Tekergat, Sunamgnj"
+    },
+    {
+      "imageSrc": "/casa.jpeg",
+      "title": "Casa Las Tirtugas",
+      "location": "Av Damero, Mexico"
+    },
+    {
+      "imageSrc": "/aon.jpeg",
+      "title": "Aonang Villa Resort",
+      "location": "Bastola, Islampur"
+    },
+    {
+      "imageSrc": "/ranggauti.jpeg",
+      "title": "Rangauti Resort",
+      "location": "Sylhet, Airport Road"
+    },
+    {
+      "imageSrc": "/casa.jpeg",
+      "title": "Kachura Resort",
+      "location": "Vellima, Island"
+    },
+    {
+      "imageSrc": "/shakardu.jpeg",
+      "title": "Shakardu Resort",
+      "location": "Shakartu, Pakistan"
+    }
+  ]
+}
