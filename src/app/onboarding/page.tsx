@@ -39,7 +39,7 @@ export default function Onboarding() {
   const { imageSrc, title, highlight, description } = onboardingData[currentPage];
 
   return (
-    <div className="flex flex-col h-screen items-center justify-between bg-white">
+    <div className="flex flex-col h-screen items-center justify-between bg-white lg:mx-64">
       <div className="relative w-full" style={{ height: "55%" }}>
         <Image
           src={imageSrc}
@@ -66,7 +66,7 @@ export default function Onboarding() {
             ></div>
           ))}
         </div>
-        <button onClick={handleNext} className="w-full h-14 rounded-2xl bg-p-blue text-white py-3 text-lg">
+        <button onClick={handleNext} className="w-full h-14 rounded-2xl bg-p-blue text-white py-3 text-lg lg:w-1/2">
           {currentPage === 0 ? "Get Started" : "Next"}
         </button>
       </div>
