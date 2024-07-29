@@ -11,11 +11,14 @@ interface DetailProps {
 
 const fetchData = async (slug: string): Promise<Place | null> => {
   try {
-    const response = await fetch(`http://localhost:3000/api/places/${slug}`);
+    const response = await fetch(`http://localhost:3000/api/places/niladri-reservoir`);
     if (!response.ok) {
       throw new Error("Failed to fetch");
     }
     const data = await response.json();
+
+    
+    console.log(data)
     return data
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -25,7 +28,7 @@ const fetchData = async (slug: string): Promise<Place | null> => {
 
 const fetchPlaces = async (): Promise<Place[] | null> => {
   try {
-    const response = await fetch(`http://localhost:3000/api/places`);
+    const response = await fetch(`http://localhost:3000/api/places/`);
     if (!response.ok) {
       throw new Error("Failed to fetch");
     }

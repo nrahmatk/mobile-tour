@@ -5,8 +5,6 @@ export async function GET(request: NextRequest, { params }: { params: { slug: st
   try {
     const data = require('../places.json')
 
-
-
     const place = data.find((place: Place) => place.slug === params.slug);
 
     if (!place) {
