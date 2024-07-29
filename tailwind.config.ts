@@ -18,6 +18,7 @@ const config: Config = {
         "p-blue2": "#CAEAFF",
         "p-orange": "#FF7029",
         "p-gray": "#7D848D",
+        "p-black": "#1B1E28",
       },
     },
   },

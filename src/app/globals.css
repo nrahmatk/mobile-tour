@@ -1,8 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
 
 /* @import url("https://fonts.cdnfonts.com/css/sf-ui-display"); */
 /* @import url("https://fonts.cdnfonts.com/css/geometr415-blk-bt"); */
@@ -13,12 +11,15 @@
   src: url('/fonts/gillsansmt.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
+
 @font-face {
   font-family: "Geometr415 Blk BT";
   src: url("/fonts/geometr415-blk-bt-black.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 .onboardText {
@@ -43,6 +44,18 @@
   border-radius: 50%;
   height: 100%;
 }
+
+.fixed-button {
+  position: fixed;
+  bottom: 20px;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
 
 /* @font-face {
   font-family: 'Geometr415 Blk BT';
@@ -79,7 +92,6 @@
   font-size: 18px;
   background: #fff;
 
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;

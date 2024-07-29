@@ -1,8 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    domains: ["avatar.iran.liara.run"],
-  },
-};
+const nextConfig = {};
 
 export default nextConfig;

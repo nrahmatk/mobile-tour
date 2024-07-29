@@ -44,9 +44,8 @@ export default function Onboarding() {
         <Image
           src={imageSrc}
           alt="Onboarding"
-          layout="fill"
-          objectFit="cover"
-          className="rounded-b-[30px]"
+          fill
+          className="rounded-b-[30px] object-cover"
         />
       </div>
       <div className="flex flex-col items-center px-6 py-4 text-center">
