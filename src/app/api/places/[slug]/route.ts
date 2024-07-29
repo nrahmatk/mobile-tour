@@ -4,6 +4,8 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(request: NextRequest, { params }: { params: { slug: string } }): Promise<NextResponse> {
   try {
     const data = require('../places.json')
+    
+
 
 
     const place = data.find((place: Place) => place.slug === params.slug);

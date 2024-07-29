@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -8,19 +8,22 @@ const onboardingData = [
     imageSrc: "/onboard1.png",
     title: "Life is short and the world is",
     highlight: "wide",
-    description: "At Friends tours and travel, we customize reliable and trustworthy educational tours to destinations all over the world.",
+    description:
+      "At Friends tours and travel, we customize reliable and trustworthy educational tours to destinations all over the world.",
   },
   {
     imageSrc: "/onboard2.jpeg",
     title: "It’s a big world out there go",
     highlight: "explore",
-    description: "To get the best of your adventure you just need to leave and go where you like. we are waiting for you",
+    description:
+      "To get the best of your adventure you just need to leave and go where you like. we are waiting for you",
   },
   {
     imageSrc: "/onboard3.jpeg",
     title: "People don’t take trips, trips take",
     highlight: "people",
-    description: "To get the best of your adventure you just need to leave and go where you like. we are waiting for you",
+    description:
+      "To get the best of your adventure you just need to leave and go where you like. we are waiting for you",
   },
 ];
 
@@ -36,10 +39,18 @@ export default function Onboarding() {
     }
   };
 
-  const { imageSrc, title, highlight, description } = onboardingData[currentPage];
+  const { imageSrc, title, highlight, description } =
+    onboardingData[currentPage];
 
   return (
     <div className="flex flex-col h-screen items-center justify-between bg-white lg:mx-64">
+      <button
+        onClick={() => router.push("/signin")}
+        className="z-10 absolute top-6 right-6 p-3 text-white text-lg rounded-full"
+      >
+        Skip
+      </button>
+
       <div className="relative w-full" style={{ height: "55%" }}>
         <Image
           src={imageSrc}
@@ -61,11 +72,16 @@ export default function Onboarding() {
           {onboardingData.map((_, index) => (
             <div
               key={index}
-              className={`h-2 ${currentPage === index ? "w-9 bg-p-blue" : "w-3.5 bg-p-blue2"} rounded-full`}
+              className={`h-2 ${
+                currentPage === index ? "w-9 bg-p-blue" : "w-3.5 bg-p-blue2"
+              } rounded-full`}
             ></div>
           ))}
         </div>
-        <button onClick={handleNext} className="w-full h-14 rounded-2xl bg-p-blue text-white py-3 text-lg lg:w-1/2">
+        <button
+          onClick={handleNext}
+          className="w-full h-14 rounded-2xl bg-p-blue text-white py-3 text-lg lg:w-1/2"
+        >
           {currentPage === 0 ? "Get Started" : "Next"}
         </button>
       </div>

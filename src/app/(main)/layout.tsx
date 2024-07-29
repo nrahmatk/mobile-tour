@@ -10,7 +10,7 @@ export default function MainLayout({
     <>
       {children}
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white p-3 border-t flex justify-around text-[#7D848D]">
-        <Link href="/" className="flex flex-col items-center">
+        <Link href="/home" className="flex flex-col items-center">
           <Image src="/svg/Home.svg" alt="Home" width={24} height={24} />
           <span className="text-xs mt-1">Home</span>
         </Link>
