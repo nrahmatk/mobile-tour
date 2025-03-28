@@ -76,7 +76,7 @@ export default function Profile() {
 
   return (
     <motion.div
-      className="min-h-screen bg-white pb-24"
+      className="min-h-dvh bg-white pb-24"
       variants={containerVariants}
       initial="hidden"
       animate="visible"

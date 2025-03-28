@@ -45,7 +45,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white px-6 py-8 relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center min-h-dvh bg-white px-6 py-8 relative overflow-hidden">
       <motion.button
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}

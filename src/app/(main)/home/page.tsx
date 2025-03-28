@@ -63,7 +63,7 @@ const Home: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="h-screen flex flex-col justify-center items-center bg-white">
+      <div className="min-h-dvh flex flex-col justify-center items-center bg-white">
         <div className="w-16 h-16 relative animate-spin">
           <div className="absolute top-0 left-0 right-0 bottom-0 rounded-full border-4 border-transparent border-t-p-blue border-l-p-blue"></div>
         </div>
@@ -74,7 +74,7 @@ const Home: React.FC = () => {
 
   return (
     <motion.div 
-      className="min-h-screen mb-28 bg-white"
+      className="min-h-dvh mb-28 bg-white"
       variants={containerVariants}
       initial="hidden"
       animate="visible"

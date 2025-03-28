@@ -51,7 +51,7 @@ export default function Detail({ params }: DetailProps) {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col h-screen items-center justify-center bg-white">
+      <div className="flex flex-col min-h-dvh items-center justify-center bg-white">
         <div className="w-16 h-16 relative animate-spin">
           <div className="absolute top-0 left-0 right-0 bottom-0 rounded-full border-4 border-transparent border-t-p-blue border-l-p-blue"></div>
         </div>
@@ -64,7 +64,7 @@ export default function Detail({ params }: DetailProps) {
 
   if (!place) {
     return (
-      <div className="flex flex-col h-screen items-center justify-center bg-white px-6 text-center">
+      <div className="flex flex-col min-h-dvh items-center justify-center bg-white px-6 text-center">
         <Image
           src="/svg/not-found.svg"
           alt="Not found"
@@ -87,7 +87,7 @@ export default function Detail({ params }: DetailProps) {
     place;
 
   return (
-    <div className="flex flex-col min-h-screen relative bg-white">
+    <div className="flex flex-col min-h-dvh relative bg-white">
       <AnimatePresence>
         {booking && (
           <motion.div

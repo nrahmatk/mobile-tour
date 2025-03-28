@@ -6,21 +6,21 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const onboardingData = [
   {
-    imageSrc: "/onboard1.webp",
+    imageSrc: "/onboard1.svg",
     title: "Life is short and the world is",
     highlight: "wide",
     description:
       "At Friends tours and travel, we customize reliable and trustworthy educational tours to destinations all over the world.",
   },
   {
-    imageSrc: "/onboard2.webp",
+    imageSrc: "/onboard2.svg",
     title: "It's a big world out there go",
     highlight: "explore",
     description:
       "To get the best of your adventure you just need to leave and go where you like. We are waiting for you.",
   },
   {
-    imageSrc: "/onboard3.webp",
+    imageSrc: "/backpack.svg",
     title: "People don't take trips, trips take",
     highlight: "people",
     description:
@@ -30,19 +30,7 @@ const onboardingData = [
 
 export default function Onboarding() {
   const [currentPage, setCurrentPage] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-  const [initialLoading, setInitialLoading] = useState(true);
   const router = useRouter();
-
-  useEffect(() => {
-    if (imagesLoaded === onboardingData.length) {
-      setInitialLoading(false);
-    }
-  }, [imagesLoaded]);
-
-  const handleImageLoad = () => {
-    setImagesLoaded((prev) => prev + 1);
-  };
 
   const handleNext = () => {
     if (currentPage < onboardingData.length - 1) {
@@ -55,60 +43,14 @@ export default function Onboarding() {
   const { imageSrc, title, highlight, description } =
     onboardingData[currentPage];
 
-  if (initialLoading) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-white">
-        <div className="animate-pulse flex space-x-2">
-          <div className="w-3 h-3 bg-p-blue rounded-full"></div>
-          <div className="w-3 h-3 bg-p-blue rounded-full"></div>
-          <div className="w-3 h-3 bg-p-blue rounded-full"></div>
-        </div>
-
-        {/* Preload all images in the background */}
-        <div className="hidden">
-          {onboardingData.map((data, index) => (
-            <Image
-              key={index}
-              src={data.imageSrc}
-              alt="Preloading"
-              width={1}
-              height={1}
-              onLoad={handleImageLoad}
-              priority={true}
-            />
-          ))}
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="flex flex-col h-screen items-center justify-between bg-white overflow-hidden">
+    <div className="flex flex-col min-h-dvh items-center justify-between bg-white overflow-hidden">
       <button
         onClick={() => router.push("/signin")}
         className="z-10 absolute top-6 right-6 py-2 px-5 text-white text-sm font-medium bg-black/30 backdrop-blur-md rounded-full transition-all hover:bg-black/40"
       >
         Skip
       </button>
-
-      {/* Preload images that aren't currently visible */}
-      <div className="hidden">
-        {onboardingData.map((data, index) => {
-          if (index !== currentPage) {
-            return (
-              <Image
-                key={index}
-                src={data.imageSrc}
-                alt="Preloading"
-                width={1}
-                height={1}
-                priority={index === (currentPage + 1) % onboardingData.length}
-              />
-            );
-          }
-          return null;
-        })}
-      </div>
 
       <AnimatePresence mode="wait">
         <motion.div
@@ -117,18 +59,17 @@ export default function Onboarding() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="relative w-full"
-          style={{ height: "55%" }}
+          className="relative w-full overflow-hidden rounded-b-[40px]"
+          style={{ height: "45vh" }}
         >
           <Image
             src={imageSrc}
-            alt="Onboarding"
+            alt={`Onboarding slide ${currentPage + 1}`}
             fill
             priority
             quality={90}
-            className="rounded-b-[40px] object-cover shadow-lg"
+            className="object-cover shadow-lg scale-[1.3]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent rounded-b-[40px]"></div>
         </motion.div>
       </AnimatePresence>
 

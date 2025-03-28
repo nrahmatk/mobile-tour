@@ -114,7 +114,7 @@ export default function Calendar() {
 
   if (loading) {
     return (
-      <div className="h-screen flex flex-col justify-center items-center bg-white">
+      <div className="min-h-dvh flex flex-col justify-center items-center bg-white">
         <div className="w-10 h-10 border-4 border-p-blue border-t-transparent rounded-full animate-spin"></div>
         <p className="mt-4 text-gray-500 animate-pulse">Loading your schedule...</p>
       </div>
@@ -123,7 +123,7 @@ export default function Calendar() {
 
   return (
     <motion.div 
-      className="min-h-screen bg-white pb-24"
+      className="min-h-dvh bg-white pb-24"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
