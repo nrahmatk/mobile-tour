@@ -6,24 +6,21 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const onboardingData = [
   {
-    imageSrc:
-      "https://res.cloudinary.com/dszhu92hc/image/upload/t_800/v1743151246/onboard1_jbaxjj.webp",
+    imageSrc: "/onboard1.webp",
     title: "Life is short and the world is",
     highlight: "wide",
     description:
       "At Friends tours and travel, we customize reliable and trustworthy educational tours to destinations all over the world.",
   },
   {
-    imageSrc:
-      "https://res.cloudinary.com/dszhu92hc/image/upload/t_800/v1743151677/onboard2_y3nbsb.webp",
+    imageSrc: "/onboard2.webp",
     title: "It's a big world out there go",
     highlight: "explore",
     description:
       "To get the best of your adventure you just need to leave and go where you like. We are waiting for you.",
   },
   {
-    imageSrc:
-      "https://res.cloudinary.com/dszhu92hc/image/upload/t_800/v1743151765/onboard3_tet2j1.webp",
+    imageSrc: "/onboard3.webp",
     title: "People don't take trips, trips take",
     highlight: "people",
     description:
@@ -37,16 +34,14 @@ export default function Onboarding() {
   const [initialLoading, setInitialLoading] = useState(true);
   const router = useRouter();
 
-  // Track when all images are loaded
   useEffect(() => {
     if (imagesLoaded === onboardingData.length) {
-      // All images are loaded
       setInitialLoading(false);
     }
   }, [imagesLoaded]);
 
   const handleImageLoad = () => {
-    setImagesLoaded(prev => prev + 1);
+    setImagesLoaded((prev) => prev + 1);
   };
 
   const handleNext = () => {
@@ -57,7 +52,8 @@ export default function Onboarding() {
     }
   };
 
-  const { imageSrc, title, highlight, description } = onboardingData[currentPage];
+  const { imageSrc, title, highlight, description } =
+    onboardingData[currentPage];
 
   if (initialLoading) {
     return (
@@ -67,7 +63,7 @@ export default function Onboarding() {
           <div className="w-3 h-3 bg-p-blue rounded-full"></div>
           <div className="w-3 h-3 bg-p-blue rounded-full"></div>
         </div>
-        
+
         {/* Preload all images in the background */}
         <div className="hidden">
           {onboardingData.map((data, index) => (
