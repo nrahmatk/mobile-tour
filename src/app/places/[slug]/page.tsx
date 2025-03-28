@@ -75,9 +75,6 @@ export default function Detail({ params }: DetailProps) {
         <h1 className="text-2xl font-semibold text-gray-800 mb-2">
           Destination Not Found
         </h1>
-        <p className="text-gray-500 mb-6">
-          We couldn't find the destination you're looking for.
-        </p>
         <BackButton
           customClass="px-6 py-3 bg-p-blue text-white rounded-xl font-medium"
           text="Go Back"
