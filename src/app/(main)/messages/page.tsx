@@ -204,7 +204,7 @@ export default function Messages() {
                   chat.unread > 0 ? 'bg-blue-50' : 'hover:bg-gray-50'
                 }`}
               >
-                <Link href={`/messages/${chat.id}`} className="flex items-start">
+                <Link href="#" className="flex items-start">
                   <div className="relative">
                     <div className="relative w-14 h-14 rounded-full overflow-hidden">
                       <Image 
