@@ -1,7 +1,6 @@
 'use client'
 import SplashScreen from "@/components/SplashScreen";
 import { useAuth } from "@/context/AuthContext";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 

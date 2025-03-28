@@ -1,7 +1,5 @@
 "use client";
 import Image from "next/image";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 
 const SplashScreen = () => {
 
@@ -14,7 +12,7 @@ const SplashScreen = () => {
         className="mb-4 text-white text-4xl"
         style={{ fontFamily: "Geometr415 Blk BT", color: "white" }}
       >
-        Travenor
+        Travel Test
       </h1>
     </div>
   );

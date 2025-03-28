@@ -4,95 +4,183 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { motion } from "framer-motion";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
   const { login } = useAuth();
 
-  const handleSignIn = () => {
-    console.log("Email:", email);
-    console.log("Password:", password);
-    login();
-    router.push('/home');
+  const handleSignIn = async () => {
+    if (!email || !password) return;
+    
+    setIsSubmitting(true);
+    try {
+      await login();
+      router.push('/home');
+    } catch (error) {
+      console.error("Login error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 300 } }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-white px-4 relative">
-      <button
-        className="absolute top-6 left-6 text-gray-600 p-3 rounded-full"
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white px-6 py-8 relative overflow-hidden">
+      <motion.button
+        initial={{ opacity: 0, x: -10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2 }}
+        className="absolute top-6 left-6 text-gray-600 p-2 rounded-full hover:bg-gray-100 active:bg-gray-200 transition-all"
         onClick={() => router.back()}
+        whileTap={{ scale: 0.95 }}
       >
         <Image src="/svg/chevron-left.svg" alt="Back" width={24} height={24} />
-      </button>
-      <div className="w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-2 text-center">Sign in now</h1>
-        <p className="text-gray-500 mb-8 text-center">
+      </motion.button>
+
+      <motion.div 
+        className="w-full max-w-md"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1 
+          variants={itemVariants}
+          className="text-3xl font-bold mb-2 text-center text-gray-800"
+        >
+          Sign in now
+        </motion.h1>
+        
+        <motion.p 
+          variants={itemVariants}
+          className="text-gray-500 mb-10 text-center"
+        >
           Please sign in to continue our app
-        </p>
-        <input
-          type="email"
-          placeholder="Email address"
-          className="w-full p-4 mb-5 h-14 border-none rounded-xl bg-[#F7F7F9]"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <div className="relative mb-4">
+        </motion.p>
+        
+        <motion.div variants={itemVariants}>
+          <label htmlFor="email" className="text-sm text-gray-600 font-medium ml-2 mb-1 block">
+            Email address
+          </label>
           <input
+            id="email"
+            type="email"
+            placeholder="Enter your email (isi random aja)"
+            className="w-full p-4 mb-6 h-14 border-none rounded-xl bg-[#F7F7F9] focus:ring-2 focus:ring-blue-200 focus:outline-none transition-all shadow-sm"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </motion.div>
+        
+        <motion.div variants={itemVariants} className="relative mb-4">
+          <label htmlFor="password" className="text-sm text-gray-600 font-medium ml-2 mb-1 block">
+            Password
+          </label>
+          <input
+            id="password"
             type={showPassword ? "text" : "password"}
-            placeholder="Password"
-            className="w-full p-4 mb-5 h-14 border-none rounded-xl bg-[#F7F7F9]"
+            placeholder="Enter your password (isi random aja)"
+            className="w-full p-4 mb-5 h-14 border-none rounded-xl bg-[#F7F7F9] focus:ring-2 focus:ring-blue-200 focus:outline-none transition-all shadow-sm"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
-            className="h-14 absolute inset-y-0 right-3 flex items-center justify-center"
+            className="h-14 absolute inset-y-0 right-3 top-6 flex items-center justify-center text-gray-500 hover:text-gray-700 transition-colors"
             onClick={() => setShowPassword(!showPassword)}
-            style={{ color: "#7D848D" }} // Warna tombol
+            aria-label={showPassword ? "Hide password" : "Show password"}
           >
             {showPassword ? (
-              <Image src="/svg/eye.svg" alt="Eye" width={24} height={24} />
+              <Image src="/svg/eye.svg" alt="Hide password" width={22} height={22} />
             ) : (
-              <Image src="/svg/eye-off.svg" alt="Eye" width={24} height={24} />
+              <Image src="/svg/eye-off.svg" alt="Show password" width={22} height={22} />
             )}
           </button>
-        </div>
-        <div className="flex justify-end mb-8">
-          <Link href="/forgot-password" className="text-p-orange">
-            Forget Password?
+        </motion.div>
+        
+        <motion.div variants={itemVariants} className="flex justify-end mb-8">
+          <Link 
+            href="#" 
+            className="text-p-orange hover:text-orange-600 transition-colors text-sm font-medium"
+          >
+            Forgot Password?
           </Link>
-        </div>
-        <button
+        </motion.div>
+        
+        <motion.button
+          variants={itemVariants}
+          whileTap={{ scale: 0.98 }}
+          whileHover={{ boxShadow: "0 4px 12px rgba(66, 133, 244, 0.25)" }}
           onClick={handleSignIn}
-          className="w-full h-14 rounded-2xl bg-p-blue text-white py-3 text-lg"
+          disabled={isSubmitting}
+          className="w-full h-14 rounded-2xl bg-gradient-to-r from-p-blue to-blue-500 text-white font-medium text-lg shadow-md hover:shadow-lg active:shadow-sm transition-all disabled:opacity-70 disabled:cursor-not-allowed"
         >
-          Sign In
-        </button>
-        <div className="text-center mb-6 text-[#707B81] mt-5">
+          {isSubmitting ? (
+            <div className="flex items-center justify-center">
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+              Signing in...
+            </div>
+          ) : "Sign In"}
+        </motion.button>
+        
+        <motion.div variants={itemVariants} className="text-center mb-8 text-gray-500 mt-6">
           <p>
             Don&rsquo;t have an account?{" "}
-            <Link href="/signup" className="text-p-orange">
+            <Link href="/signup" className="text-p-orange font-medium hover:text-orange-600 transition-colors">
               Sign up
             </Link>
           </p>
-        </div>
-        <div className="text-center mb-6 text-[#707B81]">
-          <p>Or connect</p>
-        </div>
-      </div>
-      <div className="w-full bg-white p-4 flex justify-center space-x-4">
-        <Link href="#">
-          <Image src="/facebook.svg" alt="Facebook" width={40} height={40} />
-        </Link>
-        <Link href="#">
-          <Image src="/instagram.svg" alt="Instagram" width={40} height={40} />
-        </Link>
-        <Link href="#">
-          <Image src="/twitter.svg" alt="Twitter" width={40} height={40} />
-        </Link>
-      </div>
+        </motion.div>
+        
+        <motion.div variants={itemVariants} className="flex items-center my-6">
+          <div className="flex-grow h-px bg-gray-200"></div>
+          <p className="mx-4 text-gray-500 text-sm">Or connect with</p>
+          <div className="flex-grow h-px bg-gray-200"></div>
+        </motion.div>
+      </motion.div>
+      
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="w-full max-w-xs flex justify-center space-x-5 mt-2"
+      >
+        {[
+          { src: "/facebook.svg", alt: "Facebook" },
+          { src: "/instagram.svg", alt: "Instagram" },
+          { src: "/twitter.svg", alt: "Twitter" }
+        ].map((social, index) => (
+          <motion.div
+            key={social.alt}
+            variants={itemVariants}
+            whileHover={{ y: -5, scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400 }}
+            className="bg-gray-50 p-3 rounded-full shadow-sm hover:shadow-md transition-all"
+          >
+            <Link href="#">
+              <Image src={social.src} alt={social.alt} width={32} height={32} />
+            </Link>
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   );
 }

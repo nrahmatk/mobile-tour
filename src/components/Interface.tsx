@@ -13,8 +13,8 @@ export interface Place {
   title: string;
   location: string;
   description: string;
-  rating: string;
-  ratingCount: string;
+  rating?: string | number;
+  ratingCount?: string | number;
   price: number;
 }
 

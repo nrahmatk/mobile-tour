@@ -4,111 +4,197 @@ import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Place, User } from "@/components/Interface";
 import FavoritePlaceCard from "@/components/FavoritePlaceCard";
 import BestDestinationCard from "@/components/BestDestinationCard";
+import { motion } from "framer-motion";
 
 const Home: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [destinations, setDestinations] = useState<Place[]>([]);
   const [favoritePlaces, setFavoritePlaces] = useState<Place[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [userRes, destinationsRes, favoritePlacesRes] = await Promise.all(
-          [
-            axios.get("http://localhost:3000/api/user"),
-            axios.get("http://localhost:3000/api/destinations"),
-            axios.get("http://localhost:3000/api/places"),
-          ]
-        );
+        setIsLoading(true);
+        const [userRes, destinationsRes, favoritePlacesRes] = await Promise.all([
+          axios.get("/api/user"),
+          axios.get("/api/destinations"),
+          axios.get("/api/places"),
+        ]);
 
         setUser(userRes.data[0]);
         setDestinations(destinationsRes.data);
         setFavoritePlaces(favoritePlacesRes.data);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
-  if (!user) {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 300, damping: 24 },
+    },
+  };
+
+  if (isLoading) {
     return (
-      <div className="w-scree h-screen flex justify-center items-center">
-        <div>Loading...</div>
+      <div className="h-screen flex flex-col justify-center items-center bg-white">
+        <div className="w-16 h-16 relative animate-spin">
+          <div className="absolute top-0 left-0 right-0 bottom-0 rounded-full border-4 border-transparent border-t-p-blue border-l-p-blue"></div>
+        </div>
+        <p className="mt-4 text-gray-500 animate-pulse">Loading amazing destinations...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen lg:mx-80 mb-28">
-      <header className="flex justify-between items-center mb-3 p-5">
-        <div className="flex items-center space-x-2">
-          <Image
-            src={"/user/profile1.png"}
-            alt="User Avatar"
-            width={40}
-            height={40}
-            className="rounded-full"
-          />
-          <span className="text-p-black font-medium">{user.name}</span>
+    <motion.div 
+      className="min-h-screen mb-28 bg-white"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.header 
+        className="flex justify-between items-center p-5 sticky top-0 z-10 bg-white/80 backdrop-blur-md"
+        variants={itemVariants}
+      >
+        <div className="flex items-center space-x-3">
+          <div className="relative overflow-hidden rounded-full ring-2 ring-p-blue/20">
+            <Image
+              src={"/user/profile1.png"}
+              alt="User Avatar"
+              width={44}
+              height={44}
+              className="rounded-full object-cover"
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-gray-500 text-xs">Welcome back</span>
+            <span className="text-p-black font-semibold">{user?.name}</span>
+          </div>
         </div>
-        <button className="p-2 bg-[#F7F7F9] rounded-full">
+        <motion.button 
+          className="p-2.5 bg-[#F7F7F9] rounded-full hover:bg-gray-100 transition-colors shadow-sm"
+          whileTap={{ scale: 0.95 }}
+        >
           <Image
             src="/svg/bell.svg"
             alt="Notifications"
-            width={24}
-            height={24}
+            width={22}
+            height={22}
           />
-        </button>
-      </header>
+        </motion.button>
+      </motion.header>
 
-      <section className="mb-6 px-5">
-        <h1 className="text-3xl">Explore the</h1>
-        <h1 className="text-3xl font-semibold">
-          Beautiful <span className="text-p-orange">world!</span>
+      <motion.section className="mb-8 px-5" variants={itemVariants}>
+        <h1 className="text-3xl text-gray-700">Explore the</h1>
+        <h1 className="text-3xl font-bold text-gray-900">
+          Beautiful <span className="text-p-orange bg-gradient-to-r from-p-orange to-amber-500 bg-clip-text text-transparent">world!</span>
         </h1>
-      </section>
+      </motion.section>
 
-      <section className="mb-6">
-        <div className="flex justify-between items-center mb-1 px-5">
-          <h2 className="text-lg font-medium">Best Destination</h2>
-          <Link href="/destinations" className="text-p-orange">
+      <motion.section 
+        className="relative mb-10 overflow-visible"
+        variants={itemVariants}
+      >
+        <div className="flex justify-between items-center mb-3 px-5">
+          <h2 className="text-xl font-semibold text-gray-800">Best Destinations</h2>
+          <Link 
+            href="#" 
+            className="text-p-orange font-medium flex items-center hover:text-amber-600 transition-colors"
+          >
             View all
+            <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </Link>
         </div>
+        
         <Swiper
-          spaceBetween={5}
+          spaceBetween={16}
           slidesPerView={"auto"}
+          centeredSlides={false}
           pagination={{
             clickable: true,
+            dynamicBullets: true,
           }}
-          className="mySwiper"
-          // modules={[Pagination]}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          modules={[Pagination, Autoplay]}
+          className="destinationSwiper pl-5"
+          style={{
+            paddingBottom: "40px",
+          }}
         >
           {destinations.map((destination, index) => (
-            <SwiperSlide key={index}>
-              <BestDestinationCard {...destination} />
+            <SwiperSlide key={destination.id || index} style={{ width: 'auto', maxWidth: '85%' }}>
+              <motion.div 
+                initial={{ scale: 0.95, opacity: 0.8 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <BestDestinationCard {...destination} />
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
-      </section>
+      </motion.section>
 
-      <section>
-        <h2 className="text-lg font-medium mb-4 mx-5">Favorite Places</h2>
-        <div className=" grid grid-cols-2 gap-5 justify-items-center mx-5 lg:grid-cols-4 lg:gap-6">
+      <motion.section variants={itemVariants}>
+        <div className="flex justify-between items-center mb-4 px-5">
+          <h2 className="text-xl font-semibold text-gray-800">Favorite Places</h2>
+          <Link 
+            href="#" 
+            className="text-p-orange font-medium flex items-center hover:text-amber-600 transition-colors"
+          >
+            View all
+            <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </Link>
+        </div>
+        
+        <div className="grid grid-cols-2 gap-4 px-5 lg:grid-cols-4 lg:gap-6">
           {favoritePlaces.map((place, index) => (
-            <FavoritePlaceCard key={place.id} place={place} />
+            <motion.div
+              key={place.id || index}
+              variants={itemVariants}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="h-full"
+            >
+              <FavoritePlaceCard place={place} />
+            </motion.div>
           ))}
         </div>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 };
 
