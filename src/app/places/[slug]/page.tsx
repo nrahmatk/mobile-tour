@@ -146,7 +146,7 @@ export default function Detail({ params }: DetailProps) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
 
-        <div className="fixed w-full z-30 top-0 left-0 right-0">
+        <div className="fixed z-30 top-0 w-full max-w-screen-md">
           <div className="flex justify-between items-center px-6 pt-6 pb-4">
             <BackButton />
             <h1 className="text-xl font-medium text-white drop-shadow-md">
