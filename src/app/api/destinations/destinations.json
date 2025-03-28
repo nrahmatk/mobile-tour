@@ -1,50 +1,50 @@
 [
-    {
-      "slug": "niladri-reservoir",
-      "imageSrc": "/Niladri.jpeg",
-      "title": "Niladri Reservoir",
-      "location": "Tekergat, Sunamgnj",
-      "rating": 4.7,
-      "ratingCount": 50
-    },
-    {
-      "slug": "darma-reservoir",
-      "imageSrc": "/darma.jpeg",
-      "title": "Darma Reservoir",
-      "location": "Darma, Kuningan",
-      "rating": 4.5,
-      "ratingCount": 30
-    },
-    {
-      "slug": "casa-las-tirtugas",
-      "imageSrc": "/casa.jpeg",
-      "title": "Casa Las Tirtugas",
-      "location": "Av Damero, Mexico",
-      "rating": 4.5,
-      "ratingCount": 1850
-    },
-    {
-      "slug": "aonang-villa-resort",
-      "imageSrc": "/aon.jpeg",
-      "title": "Aonang Villa Resort",
-      "location": "Bastola, Islampur",
-      "rating": 4.3,
-      "ratingCount": 2100
-    },
-    {
-      "slug": "rangauti-resort",
-      "imageSrc": "/ranggauti.jpeg",
-      "title": "Rangauti Resort",
-      "location": "Sylhet, Airport Road",
-      "rating": 4.6,
-      "ratingCount": 1750
-    },
-    {
-      "slug": "kachura-resort",
-      "imageSrc": "/casa.jpeg",
-      "title": "Kachura Resort",
-      "location": "Vellima, Island",
-      "rating": 4.8,
-      "ratingCount": 1320
-    }
-  ]
+  {
+    "slug": "niladri-reservoir",
+    "imageSrc": "/Niladri.jpg",
+    "title": "Niladri Reservoir",
+    "location": "Tekergat, Sunamgnj",
+    "rating": 4.7,
+    "ratingCount": 50
+  },
+  {
+    "slug": "darma-reservoir",
+    "imageSrc": "/darma.jpg",
+    "title": "Darma Reservoir",
+    "location": "Darma, Kuningan",
+    "rating": 4.5,
+    "ratingCount": 30
+  },
+  {
+    "slug": "casa-las-tirtugas",
+    "imageSrc": "/casa.jpg",
+    "title": "Casa Las Tirtugas",
+    "location": "Av Damero, Mexico",
+    "rating": 4.5,
+    "ratingCount": 1850
+  },
+  {
+    "slug": "aonang-villa-resort",
+    "imageSrc": "/aon.jpg",
+    "title": "Aonang Villa Resort",
+    "location": "Bastola, Islampur",
+    "rating": 4.3,
+    "ratingCount": 2100
+  },
+  {
+    "slug": "rangauti-resort",
+    "imageSrc": "/ranggauti.jpg",
+    "title": "Rangauti Resort",
+    "location": "Sylhet, Airport Road",
+    "rating": 4.6,
+    "ratingCount": 1750
+  },
+  {
+    "slug": "kachura-resort",
+    "imageSrc": "/casa.jpg",
+    "title": "Kachura Resort",
+    "location": "Vellima, Island",
+    "rating": 4.8,
+    "ratingCount": 1320
+  }
+]

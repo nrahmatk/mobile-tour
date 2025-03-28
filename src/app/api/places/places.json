@@ -1,90 +1,90 @@
 [
-    {
-      "id": "1",
-      "slug": "niladri-reservoir",
-      "imageSrc": "/niladri-2.jpeg",
-      "title": "Niladri Reservoir",
-      "location": "Tekergat, Sunamgnj",
-      "description": "You will get a complete travel package on the beaches. Packages in the form of airline tickets, recommended Hotel rooms, Transportation, Have you ever been on holiday to the Greek ETC",
-      "rating": 4.7,
-      "ratingCount": 2498,
-      "price": 59
-    },
-    {
-      "id": "2",
-      "slug": "casa-las-tirtugas",
-      "imageSrc": "/casa.jpeg",
-      "title": "Casa Las Tirtugas",
-      "location": "Av Damero, Mexico",
-      "description": "An exquisite beachside resort offering the best of Mexican hospitality. Enjoy the sun, sand, and sea with all the amenities you could ask for. From luxurious rooms to world-class dining, Casa Las Tirtugas ensures a memorable stay. Indulge in various water sports, relax by the pool, or explore the vibrant local culture. Perfect for both relaxation and adventure, this resort caters to all your needs.",
-      "rating": 4.5,
-      "ratingCount": 1850,
-      "price": 120
-    },
-    {
-      "id": "3",
-      "slug": "aonang-villa-resort",
-      "imageSrc": "/aon.jpeg",
-      "title": "Aonang Villa Resort",
-      "location": "Bastola, Islampur",
-      "description": "A serene getaway in the heart of nature. Aonang Villa Resort offers a peaceful retreat with luxurious amenities and breathtaking views. Nestled amidst lush greenery, the resort provides a perfect blend of comfort and natural beauty. Guests can enjoy a variety of outdoor activities, from hiking to bird watching, or simply unwind in the spa. The resort's attentive service and elegant decor make it an ideal choice for those seeking tranquility and elegance.",
-      "rating": 4.3,
-      "ratingCount": 2100,
-      "price": 85
-    },
-    {
-      "id": "4",
-      "slug": "rangauti-resort",
-      "imageSrc": "/ranggauti.jpeg",
-      "title": "Rangauti Resort",
-      "location": "Sylhet, Airport Road",
-      "description": "Experience the tranquility of Sylhet at Rangauti Resort. Perfect for a relaxing vacation with family or friends. The resort features spacious rooms with modern amenities, ensuring a comfortable stay. Guests can enjoy the picturesque surroundings, take part in cultural tours, or relax by the pool. With its blend of traditional charm and contemporary comfort, Rangauti Resort promises a unique and memorable experience.",
-      "rating": 4.6,
-      "ratingCount": 1750,
-      "price": 95
-    },
-    {
-      "id": "5",
-      "slug": "kachura-resort",
-      "imageSrc": "/casa.jpeg",
-      "title": "Kachura Resort",
-      "location": "Vellima, Island",
-      "description": "A hidden gem in Vellima, Kachura Resort offers an exclusive island experience with crystal clear waters and pristine beaches. The resort is designed to provide ultimate relaxation and privacy, featuring private villas with stunning ocean views. Guests can indulge in gourmet dining, explore underwater life through snorkeling and diving, or simply relax on the beach. Kachura Resort is an ideal destination for those looking to escape the hustle and bustle of everyday life and immerse themselves in nature's beauty.",
-      "rating": 4.8,
-      "ratingCount": 1320,
-      "price": 150
-    },
-    {
-      "id": "6",
-      "slug": "shakardu-resort",
-      "imageSrc": "/shakardu.jpeg",
-      "title": "Shakardu Resort",
-      "location": "Shakartu, Pakistan",
-      "description": "Shakardu Resort is located in the majestic region of Shakartu, offering breathtaking views of the surrounding mountains. The resort combines luxury and adventure, providing guests with a range of outdoor activities like trekking, mountain climbing, and exploring local heritage sites. The well-appointed rooms and excellent service ensure a comfortable and memorable stay. Whether you're seeking adventure or relaxation, Shakardu Resort caters to all types of travelers with its diverse offerings.",
-      "rating": 4.7,
-      "ratingCount": 1980,
-      "price": 140
-    },
-    {
-      "id": "7",
-      "slug": "darma-reservoir",
-      "imageSrc": "/darma.jpeg",
-      "title": "Darma Reservoir",
-      "location": "Darma, Kuningan",
-      "description": "Darma Reservoir offers a serene and scenic escape in the heart of Kuningan. Known for its stunning landscapes and peaceful ambiance, it is an ideal destination for nature lovers and adventure enthusiasts. Visitors can enjoy boating, fishing, and picnicking by the water, while taking in the beautiful views of the surrounding hills. The area is perfect for a relaxing day out or an adventurous weekend getaway.",
-      "rating": 4.5,
-      "ratingCount": 30,
-      "price": 45
-    },
-    {
-      "id": "8",
-      "slug": "blissful-haven",
-      "imageSrc": "/aon.jpeg",
-      "title": "Blissful Haven",
-      "location": "Serenity Bay, Bali",
-      "description": "Blissful Haven is a tropical paradise located in the stunning Serenity Bay of Bali. This resort offers luxurious accommodations with breathtaking ocean views and private beach access. Guests can indulge in a range of activities including yoga sessions, spa treatments, and water sports. The resort's world-class dining options and impeccable service make it an ideal destination for a romantic getaway or a rejuvenating retreat.",
-      "rating": 4.9,
-      "ratingCount": 850,
-      "price": 200
-    }
-  ]
+  {
+    "id": "1",
+    "slug": "niladri-reservoir",
+    "imageSrc": "/niladri-2.jpg",
+    "title": "Niladri Reservoir",
+    "location": "Tekergat, Sunamgnj",
+    "description": "You will get a complete travel package on the beaches. Packages in the form of airline tickets, recommended Hotel rooms, Transportation, Have you ever been on holiday to the Greek ETC",
+    "rating": 4.7,
+    "ratingCount": 2498,
+    "price": 59
+  },
+  {
+    "id": "2",
+    "slug": "casa-las-tirtugas",
+    "imageSrc": "/casa.jpg",
+    "title": "Casa Las Tirtugas",
+    "location": "Av Damero, Mexico",
+    "description": "An exquisite beachside resort offering the best of Mexican hospitality. Enjoy the sun, sand, and sea with all the amenities you could ask for. From luxurious rooms to world-class dining, Casa Las Tirtugas ensures a memorable stay. Indulge in various water sports, relax by the pool, or explore the vibrant local culture. Perfect for both relaxation and adventure, this resort caters to all your needs.",
+    "rating": 4.5,
+    "ratingCount": 1850,
+    "price": 120
+  },
+  {
+    "id": "3",
+    "slug": "aonang-villa-resort",
+    "imageSrc": "/aon.jpg",
+    "title": "Aonang Villa Resort",
+    "location": "Bastola, Islampur",
+    "description": "A serene getaway in the heart of nature. Aonang Villa Resort offers a peaceful retreat with luxurious amenities and breathtaking views. Nestled amidst lush greenery, the resort provides a perfect blend of comfort and natural beauty. Guests can enjoy a variety of outdoor activities, from hiking to bird watching, or simply unwind in the spa. The resort's attentive service and elegant decor make it an ideal choice for those seeking tranquility and elegance.",
+    "rating": 4.3,
+    "ratingCount": 2100,
+    "price": 85
+  },
+  {
+    "id": "4",
+    "slug": "rangauti-resort",
+    "imageSrc": "/ranggauti.jpg",
+    "title": "Rangauti Resort",
+    "location": "Sylhet, Airport Road",
+    "description": "Experience the tranquility of Sylhet at Rangauti Resort. Perfect for a relaxing vacation with family or friends. The resort features spacious rooms with modern amenities, ensuring a comfortable stay. Guests can enjoy the picturesque surroundings, take part in cultural tours, or relax by the pool. With its blend of traditional charm and contemporary comfort, Rangauti Resort promises a unique and memorable experience.",
+    "rating": 4.6,
+    "ratingCount": 1750,
+    "price": 95
+  },
+  {
+    "id": "5",
+    "slug": "kachura-resort",
+    "imageSrc": "/casa.jpg",
+    "title": "Kachura Resort",
+    "location": "Vellima, Island",
+    "description": "A hidden gem in Vellima, Kachura Resort offers an exclusive island experience with crystal clear waters and pristine beaches. The resort is designed to provide ultimate relaxation and privacy, featuring private villas with stunning ocean views. Guests can indulge in gourmet dining, explore underwater life through snorkeling and diving, or simply relax on the beach. Kachura Resort is an ideal destination for those looking to escape the hustle and bustle of everyday life and immerse themselves in nature's beauty.",
+    "rating": 4.8,
+    "ratingCount": 1320,
+    "price": 150
+  },
+  {
+    "id": "6",
+    "slug": "shakardu-resort",
+    "imageSrc": "/shakardu.jpg",
+    "title": "Shakardu Resort",
+    "location": "Shakartu, Pakistan",
+    "description": "Shakardu Resort is located in the majestic region of Shakartu, offering breathtaking views of the surrounding mountains. The resort combines luxury and adventure, providing guests with a range of outdoor activities like trekking, mountain climbing, and exploring local heritage sites. The well-appointed rooms and excellent service ensure a comfortable and memorable stay. Whether you're seeking adventure or relaxation, Shakardu Resort caters to all types of travelers with its diverse offerings.",
+    "rating": 4.7,
+    "ratingCount": 1980,
+    "price": 140
+  },
+  {
+    "id": "7",
+    "slug": "darma-reservoir",
+    "imageSrc": "/darma.jpg",
+    "title": "Darma Reservoir",
+    "location": "Darma, Kuningan",
+    "description": "Darma Reservoir offers a serene and scenic escape in the heart of Kuningan. Known for its stunning landscapes and peaceful ambiance, it is an ideal destination for nature lovers and adventure enthusiasts. Visitors can enjoy boating, fishing, and picnicking by the water, while taking in the beautiful views of the surrounding hills. The area is perfect for a relaxing day out or an adventurous weekend getaway.",
+    "rating": 4.5,
+    "ratingCount": 30,
+    "price": 45
+  },
+  {
+    "id": "8",
+    "slug": "blissful-haven",
+    "imageSrc": "/aon.jpg",
+    "title": "Blissful Haven",
+    "location": "Serenity Bay, Bali",
+    "description": "Blissful Haven is a tropical paradise located in the stunning Serenity Bay of Bali. This resort offers luxurious accommodations with breathtaking ocean views and private beach access. Guests can indulge in a range of activities including yoga sessions, spa treatments, and water sports. The resort's world-class dining options and impeccable service make it an ideal destination for a romantic getaway or a rejuvenating retreat.",
+    "rating": 4.9,
+    "ratingCount": 850,
+    "price": 200
+  }
+]

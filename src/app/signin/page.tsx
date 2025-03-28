@@ -15,12 +15,10 @@ export default function Signin() {
   const { login } = useAuth();
 
   const handleSignIn = async () => {
-    if (!email || !password) return;
-    
     setIsSubmitting(true);
     try {
       await login();
-      router.push('/home');
+      router.push("/home");
     } catch (error) {
       console.error("Login error:", error);
     } finally {
@@ -33,14 +31,18 @@ export default function Signin() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 300 } }
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 300 },
+    },
   };
 
   return (
@@ -56,28 +58,31 @@ export default function Signin() {
         <Image src="/svg/chevron-left.svg" alt="Back" width={24} height={24} />
       </motion.button>
 
-      <motion.div 
+      <motion.div
         className="w-full max-w-md"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.h1 
+        <motion.h1
           variants={itemVariants}
           className="text-3xl font-bold mb-2 text-center text-gray-800"
         >
           Sign in now
         </motion.h1>
-        
-        <motion.p 
+
+        <motion.p
           variants={itemVariants}
           className="text-gray-500 mb-10 text-center"
         >
           Please sign in to continue our app
         </motion.p>
-        
+
         <motion.div variants={itemVariants}>
-          <label htmlFor="email" className="text-sm text-gray-600 font-medium ml-2 mb-1 block">
+          <label
+            htmlFor="email"
+            className="text-sm text-gray-600 font-medium ml-2 mb-1 block"
+          >
             Email address
           </label>
           <input
@@ -89,9 +94,12 @@ export default function Signin() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </motion.div>
-        
+
         <motion.div variants={itemVariants} className="relative mb-4">
-          <label htmlFor="password" className="text-sm text-gray-600 font-medium ml-2 mb-1 block">
+          <label
+            htmlFor="password"
+            className="text-sm text-gray-600 font-medium ml-2 mb-1 block"
+          >
             Password
           </label>
           <input
@@ -108,22 +116,32 @@ export default function Signin() {
             aria-label={showPassword ? "Hide password" : "Show password"}
           >
             {showPassword ? (
-              <Image src="/svg/eye.svg" alt="Hide password" width={22} height={22} />
+              <Image
+                src="/svg/eye.svg"
+                alt="Hide password"
+                width={22}
+                height={22}
+              />
             ) : (
-              <Image src="/svg/eye-off.svg" alt="Show password" width={22} height={22} />
+              <Image
+                src="/svg/eye-off.svg"
+                alt="Show password"
+                width={22}
+                height={22}
+              />
             )}
           </button>
         </motion.div>
-        
+
         <motion.div variants={itemVariants} className="flex justify-end mb-8">
-          <Link 
-            href="#" 
+          <Link
+            href="#"
             className="text-p-orange hover:text-orange-600 transition-colors text-sm font-medium"
           >
             Forgot Password?
           </Link>
         </motion.div>
-        
+
         <motion.button
           variants={itemVariants}
           whileTap={{ scale: 0.98 }}
@@ -137,26 +155,34 @@ export default function Signin() {
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
               Signing in...
             </div>
-          ) : "Sign In"}
+          ) : (
+            "Sign In"
+          )}
         </motion.button>
-        
-        <motion.div variants={itemVariants} className="text-center mb-8 text-gray-500 mt-6">
+
+        <motion.div
+          variants={itemVariants}
+          className="text-center mb-8 text-gray-500 mt-6"
+        >
           <p>
             Don&rsquo;t have an account?{" "}
-            <Link href="/signup" className="text-p-orange font-medium hover:text-orange-600 transition-colors">
+            <Link
+              href="/signup"
+              className="text-p-orange font-medium hover:text-orange-600 transition-colors"
+            >
               Sign up
             </Link>
           </p>
         </motion.div>
-        
+
         <motion.div variants={itemVariants} className="flex items-center my-6">
           <div className="flex-grow h-px bg-gray-200"></div>
           <p className="mx-4 text-gray-500 text-sm">Or connect with</p>
           <div className="flex-grow h-px bg-gray-200"></div>
         </motion.div>
       </motion.div>
-      
-      <motion.div 
+
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -165,7 +191,7 @@ export default function Signin() {
         {[
           { src: "/facebook.svg", alt: "Facebook" },
           { src: "/instagram.svg", alt: "Instagram" },
-          { src: "/twitter.svg", alt: "Twitter" }
+          { src: "/twitter.svg", alt: "Twitter" },
         ].map((social, index) => (
           <motion.div
             key={social.alt}

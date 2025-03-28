@@ -14,14 +14,9 @@ export default function Signup() {
   const router = useRouter();
 
   const handleSignUp = async () => {
-    if (!email || !name || !password) return;
-
     setIsSubmitting(true);
     try {
-      // Simulating API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // Navigate to signin after successful signup
       router.push("/signin");
     } catch (error) {
       console.error("Signup error:", error);
