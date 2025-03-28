@@ -24,8 +24,8 @@ export default function Detail({ params }: DetailProps) {
       try {
         // Fetch both in parallel for faster loading
         const [placeRes, placesRes] = await Promise.all([
-          fetch(`http://localhost:3000/api/places/${params.slug}`),
-          fetch(`http://localhost:3000/api/places`),
+          fetch(`https://mov-travel.vercel.app/api/places/${params.slug}`),
+          fetch(`https://mov-travel.vercel.app/api/places`),
         ]);
 
         if (!placeRes.ok || !placesRes.ok) {
