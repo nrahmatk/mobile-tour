@@ -15,18 +15,14 @@ export default function Signup() {
 
   const handleSignUp = async () => {
     if (!email || !name || !password) return;
-    
+
     setIsSubmitting(true);
     try {
-      console.log("Name:", name);
-      console.log("Email:", email);
-      console.log("Password:", password);
-      
       // Simulating API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       // Navigate to signin after successful signup
-      router.push('/signin');
+      router.push("/signin");
     } catch (error) {
       console.error("Signup error:", error);
     } finally {
@@ -39,14 +35,18 @@ export default function Signup() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 300 } }
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 300 },
+    },
   };
 
   return (
@@ -62,28 +62,31 @@ export default function Signup() {
         <Image src="/svg/chevron-left.svg" alt="Back" width={24} height={24} />
       </motion.button>
 
-      <motion.div 
+      <motion.div
         className="w-full max-w-md"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.h1 
+        <motion.h1
           variants={itemVariants}
           className="text-3xl font-bold mb-2 text-center text-gray-800"
         >
           Sign up now
         </motion.h1>
-        
-        <motion.p 
+
+        <motion.p
           variants={itemVariants}
           className="text-gray-500 mb-10 text-center"
         >
           Please fill the details and create account
         </motion.p>
-        
+
         <motion.div variants={itemVariants}>
-          <label htmlFor="name" className="text-sm text-gray-600 font-medium ml-2 mb-1 block">
+          <label
+            htmlFor="name"
+            className="text-sm text-gray-600 font-medium ml-2 mb-1 block"
+          >
             Name
           </label>
           <input
@@ -95,9 +98,12 @@ export default function Signup() {
             onChange={(e) => setName(e.target.value)}
           />
         </motion.div>
-        
+
         <motion.div variants={itemVariants}>
-          <label htmlFor="email" className="text-sm text-gray-600 font-medium ml-2 mb-1 block">
+          <label
+            htmlFor="email"
+            className="text-sm text-gray-600 font-medium ml-2 mb-1 block"
+          >
             Email address
           </label>
           <input
@@ -109,9 +115,12 @@ export default function Signup() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </motion.div>
-        
+
         <motion.div variants={itemVariants} className="relative mb-2">
-          <label htmlFor="password" className="text-sm text-gray-600 font-medium ml-2 mb-1 block">
+          <label
+            htmlFor="password"
+            className="text-sm text-gray-600 font-medium ml-2 mb-1 block"
+          >
             Password
           </label>
           <input
@@ -128,27 +137,38 @@ export default function Signup() {
             aria-label={showPassword ? "Hide password" : "Show password"}
           >
             {showPassword ? (
-              <Image src="/svg/eye.svg" alt="Hide password" width={22} height={22} />
+              <Image
+                src="/svg/eye.svg"
+                alt="Hide password"
+                width={22}
+                height={22}
+              />
             ) : (
-              <Image src="/svg/eye-off.svg" alt="Show password" width={22} height={22} />
+              <Image
+                src="/svg/eye-off.svg"
+                alt="Show password"
+                width={22}
+                height={22}
+              />
             )}
           </button>
         </motion.div>
-        
+
         <motion.div variants={itemVariants} className="flex items-start mb-6">
           <div className="flex items-center h-5">
             <motion.div
-              whileTap={{ scale: 0.9 }} 
+              whileTap={{ scale: 0.9 }}
               className="w-5 h-5 mr-2 bg-[#F7F7F9] border border-gray-300 rounded flex items-center justify-center cursor-pointer"
             >
               <div className="w-3 h-3 bg-p-blue rounded opacity-0 hover:opacity-20 transition-opacity"></div>
             </motion.div>
           </div>
           <p className="text-sm text-gray-500">
-            Password must be at least 8 characters with a mix of letters, numbers & symbols
+            Password must be at least 8 characters with a mix of letters,
+            numbers & symbols
           </p>
         </motion.div>
-        
+
         <motion.button
           variants={itemVariants}
           whileTap={{ scale: 0.98 }}
@@ -162,26 +182,34 @@ export default function Signup() {
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
               Creating account...
             </div>
-          ) : "Sign Up"}
+          ) : (
+            "Sign Up"
+          )}
         </motion.button>
-        
-        <motion.div variants={itemVariants} className="text-center mb-8 text-gray-500 mt-6">
+
+        <motion.div
+          variants={itemVariants}
+          className="text-center mb-8 text-gray-500 mt-6"
+        >
           <p>
             Already have an account?{" "}
-            <Link href="/signin" className="text-p-orange font-medium hover:text-orange-600 transition-colors">
+            <Link
+              href="/signin"
+              className="text-p-orange font-medium hover:text-orange-600 transition-colors"
+            >
               Sign in
             </Link>
           </p>
         </motion.div>
-        
+
         <motion.div variants={itemVariants} className="flex items-center my-6">
           <div className="flex-grow h-px bg-gray-200"></div>
           <p className="mx-4 text-gray-500 text-sm">Or sign up with</p>
           <div className="flex-grow h-px bg-gray-200"></div>
         </motion.div>
       </motion.div>
-      
-      <motion.div 
+
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -190,7 +218,7 @@ export default function Signup() {
         {[
           { src: "/facebook.svg", alt: "Facebook" },
           { src: "/instagram.svg", alt: "Instagram" },
-          { src: "/twitter.svg", alt: "Twitter" }
+          { src: "/twitter.svg", alt: "Twitter" },
         ].map((social) => (
           <motion.div
             key={social.alt}

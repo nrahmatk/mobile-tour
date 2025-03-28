@@ -157,7 +157,6 @@ export default function Detail({ params }: DetailProps) {
             </h1>
             <BookmarkButton />
           </div>
-          {/* Optional: Add a gradient overlay that fades out for better text visibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
         </div>
       </motion.div>
